@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- DataTables CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/main.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/authors-dashboard">Authors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/authors-dashboard">Authors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 main-content">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h4 class="h4">All Books</h4>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Options for Pagination, Search, Sort, and Limiting -->
+
+            <div class="form-inline mt-2 mt-md-0">
+              <label class="mr-2" for="pageInput">Page:</label>
+              <input
+                class="form-control mr-sm-2"
+                type="number"
+                id="pageInput"
+                placeholder="Page"
+                min="1"
+                value="1"
+              />
+            </div>
+
+            <div class="form-inline mt-2 mt-md-0">
+              <label class="mr-2" for="sortSelect">Sort By:</label>
+              <select class="form-control" id="sortSelect">
+                <option value="">None</option>
+                <option value="id">ID</option>
+                <option value="name">Name</option>
+                <option value="dob">Date Of Birth</option>
+              </select>
+            </div>
+
+            <div class="form-inline mt-2 mt-md-0">
+              <label class="mr-2" for="sortOrderSelect">Sort Order:</label>
+              <select class="form-control" id="sortOrderSelect">
+                <option value="">None</option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+
+            <div class="form-inline mt-2 mt-md-0">
+              <label class="mr-2" for="limitSelect">Limit:</label>
+              <input class="form-control" type="number" id="limitSelect" min="1" />
+            </div>
+
+            <div class="form-inline mt-2 mt-md-0">
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Search"
+                id="searchInput"
+              />
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="applyFilters()">
+              Apply Search
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table id="authorsTable" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Author ID</th>
+                  <th>Author Name</th>
+                  <th>Date Of Birth</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows will be dynamically populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Include jQuery, Popper.js, Bootstrap JS, and DataTables.js -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.min.js" integrity="sha512-Nonc2AqL1+VEN+97F3n4YxucBOAL5BgqNwEVc2uUjdKOWAmzwj5ChdJQvN2KldAxkCxE4OenuJ/RL18bWxGGzA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Add this in your HTML file to include Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Include your main JavaScript file -->
+    <script src="/public/js/authors.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Dashboard Login</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="public/css/main.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="container">
+            <div
+              class="row justify-content-center align-items-center min-vh-100 login-container"
+            >
+              <div class="col-md-12">
+                <div class="card login-card">
+                  <div class="card-body">
+                    <h3 class="text-center mb-4">Welcome to Your Dashboard</h3>
+                    <form id="loginForm">
+                      <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="login-email"
+                          placeholder="Enter your Email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="login-password"
+                          placeholder="Enter your password"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-dark btn-block"
+                        onclick="login()"
+                      >
+                        Login
+                      </button>
+                    </form>
+                    <p class="mt-4">Dont Have An Account? <a href="/signup">Sign Up</a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-6 col-0 background_image"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/public/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.background_image {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url(/public/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  color: #333;
+}
+
+/* Optional: Add animations for a more interactive experience */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.h4{
+  color: #433d59;
+  margin-top: 1.5rem;
+}
+
+.navbar {
+  background-color: #433d59;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.nav-link{
+    color: #433d59;
+}
+
+.nav-link {
+  transition: all 0.3s ease-in-out;
+}
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  background-color: #433d59;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding-top: 56px; /* Adjust based on your fixed navbar height */
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-sticky {
+  padding-top: 20px;
+}
+
+.main-content {
+  margin-top: 56px; /* Adjust based on your fixed navbar height */
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
