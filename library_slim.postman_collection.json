@@ -173,17 +173,28 @@
 		{
 			"name": "http://localhost:8000/authors/1",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImxpYnJhcmlhbjFAZXhhbXBsZS5jb20iLCJyb2xlIjoibGlicmFyaWFuIn0.p3IiPIssJdig02MYzB7pBjJBGNYfjNhuTLkuZq6iEGo",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
-						"key": "X-Api-Token",
-						"value": "your-secret-token",
-						"type": "text"
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Updated Author111 Name\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Updated Author111 Name\",\r\n    \"dob\": \"1903-06-25\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

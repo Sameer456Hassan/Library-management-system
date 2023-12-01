@@ -43,13 +43,13 @@ $app->get('/books/{id}', 'BookController:getBook')->add([$container->get('AuthCo
 $app->post('/login', 'AuthController:login');
 $app->post('/signup', 'AuthController:signup');
 $app->get('/users', 'UserController:index')->add('AuthController:basicAuth');
-$app->get('/authors/{id}/books', 'BookController:getBooksByAuthor')->add('AuthController:bearerAuth');
+$app->get('/authors/{id}/books', 'BookController:getBooksByAuthor')->add('AuthController:bearerAu th');
 $app->put('/books/{id}', 'BookController:updateBook')->add('AuthController:customAuth');
 
 $app->get('/authors', 'AuthorController:index')->add([$container->get('AuthController'), 'customAuth']);
 $app->get('/authors/{id}', 'AuthorController:getAuthor')->add('AuthController:basicAuth');
 $app->post('/authors', 'AuthorController:createAuthor')->add([$container->get('AuthController'), 'bearerAuth']);
-$app->put('/authors/{id}', 'AuthorController:updateAuthor')->add('AuthController:customAuth');
+$app->put('/authors/{id}', 'AuthorController:updateAuthor')->add('AuthController:bearerAuth');
 
 $app->delete('/authors/{id}', 'AuthorController:deleteAuthor')->add('AuthController:bearerAuth');
 $app->delete('/books/{id}', 'BookController:deleteBook')->add('AuthController:bearerAuth');

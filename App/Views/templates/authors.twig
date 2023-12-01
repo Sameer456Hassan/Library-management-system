@@ -125,6 +125,10 @@
             <button class="btn btn-outline-success my-2 my-sm-0" onclick="applyFilters()">
               Apply Search
             </button>
+
+              <button class="btn btn-primary" data-toggle="modal" data-target="#addAuthorModal">
+                Add Author
+              </button>
           </div>
 
           <div class="table-responsive">
@@ -145,12 +149,86 @@
         </main>
       </div>
     </div>
+    <!-- Add Author Modal -->
+    <div
+      class="modal fade"
+      id="addAuthorModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addAuthorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAuthorModalLabel">Add Author</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="addAuthorForm">
+              <div class="form-group">
+                <label for="authorName">Name</label>
+                <input type="text" class="form-control" id="authorName" required />
+              </div>
+              <div class="form-group">
+                <label for="authorDOB">Date of Birth</label>
+                <input type="date" class="form-control" id="authorDOB" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Add Author</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Author Modal -->
+    <div
+      class="modal fade"
+      id="editAuthorModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editAuthorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editAuthorModalLabel">Edit Author</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editAuthorForm">
+              <input type="hidden" id="editAuthorId" />
+              <div class="form-group">
+                <label for="editAuthorName">Name</label>
+                <input type="text" class="form-control" id="editAuthorName" required />
+              </div>
+              <div class="form-group">
+                <label for="editAuthorDOB">Date of Birth</label>
+                <input type="date" class="form-control" id="editAuthorDOB" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Include jQuery, Popper.js, Bootstrap JS, and DataTables.js -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.min.js" integrity="sha512-Nonc2AqL1+VEN+97F3n4YxucBOAL5BgqNwEVc2uUjdKOWAmzwj5ChdJQvN2KldAxkCxE4OenuJ/RL18bWxGGzA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.min.js"
+      integrity="sha512-Nonc2AqL1+VEN+97F3n4YxucBOAL5BgqNwEVc2uUjdKOWAmzwj5ChdJQvN2KldAxkCxE4OenuJ/RL18bWxGGzA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Include SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Add this in your HTML file to include Axios -->

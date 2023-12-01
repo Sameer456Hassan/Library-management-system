@@ -63,7 +63,7 @@ class AuthorController
             if (!$author) {
                 $responseFactory = new ResponseFactory();
                 $response = $responseFactory->createResponse();
-        
+
                 $response->getBody()->write(json_encode(['error' => 'Author Not Found!']));
                 return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
             }
@@ -90,14 +90,16 @@ class AuthorController
             // You may want to use proper validation and error handling
             $author = new Author();
             $author->name = $data['name'];
+            $author->dob = $data['dob'];
             $author->save();
 
-         
+
             $response->getBody()->write('Author Created Successfully'); // Write JSON to the response body
 
             return $response->withHeader('Content-Type', 'application/json');
         } catch (\Exception $e) {
-            return $response->withStatus(500)->withJson(['error' => $e->getMessage()]);
+            $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
+            return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
         }
     }
 
@@ -113,10 +115,12 @@ class AuthorController
             $data = json_decode($rawBody, true);
 
             if (!$author) {
-                return $response->withStatus(404)->withJson(['error' => 'Author not found']);
+                $response->getBody()->write(json_encode(['error' => 'Author Not Found!']));
+                return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
             }
 
             $author->name = $data['name'];
+            $author->dob = $data['dob'];
             $author->save();
 
             // Prepare the data you want to include in the response
@@ -133,7 +137,8 @@ class AuthorController
 
             return $response->withHeader('Content-Type', 'application/json');
         } catch (\Exception $e) {
-            return $response->withStatus(500)->withJson(['error' => $e->getMessage()]);
+            $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
+            return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
         }
     }
 
@@ -141,27 +146,26 @@ class AuthorController
     public function deleteAuthor(Request $request, Response $response, $args)
     {
         try {
-            // Implement your delete author logic here
-            // Make sure to handle authentication in the middleware
 
             $id = $args['id'];
             $author = Author::find($id);
 
             if (!$author) {
-               
-            $response->getBody()->write(json_encode('Author Not Found')); // Write JSON to the response body
 
-            return $response->withHeader('Content-Type', 'application/json');
+                $response->getBody()->write(json_encode('Author Not Found')); // Write JSON to the response body
+
+                return $response->withHeader('Content-Type', 'application/json');
             }
 
             $author->delete();
 
-          
+
             $response->getBody()->write(json_encode('Author Deleted Successfully')); // Write JSON to the response body
 
             return $response->withHeader('Content-Type', 'application/json');
         } catch (\Exception $e) {
-            return $response->withStatus(500)->withJson(['error' => $e->getMessage()]);
+            $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
+            return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
         }
     }
 }

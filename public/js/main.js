@@ -28,7 +28,7 @@ function signup() {
     },
     error: function (error) {
       // Handle signup error, e.g., display an error message
-      console.log(error.responseJSON.error);
+      console.log(error);
       // Show error message using SweetAlert2
       Swal.fire({
         icon: "error",
@@ -67,12 +67,12 @@ function login() {
     },
     error: function (error) {
       // Handle login error, e.g., display an error message
-      console.log(error.responseJSON.error);
+      console.log(error);
       // Show error message using SweetAlert2
       Swal.fire({
         icon: "error",
         title: "Login Error",
-        text: error.responseJSON.error,
+        text: error.responseText,
       });
     },
   });
